@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineLearningPlatform.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39abe62413abde69f2f5630107212472a41e2ece")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineLearningPlatform.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineLearningPlatform.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

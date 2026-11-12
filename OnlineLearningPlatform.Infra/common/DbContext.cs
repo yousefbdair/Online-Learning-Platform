@@ -14,7 +14,7 @@ namespace OnlineLearningPlatform.Infra.common
     public class DbContext : IDbContext
 
     {
-        
+        //project backend
         private DbConnection connection;
         private readonly IConfiguration configuration;
         public DbContext(IConfiguration _configuration)
