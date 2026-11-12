@@ -1,0 +1,17 @@
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\bin\Debug\net8.0\OnlineLearningPlatform.Infra.deps.json
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\bin\Debug\net8.0\OnlineLearningPlatform.Infra.runtimeconfig.json
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\bin\Debug\net8.0\OnlineLearningPlatform.Infra.dll
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\bin\Debug\net8.0\OnlineLearningPlatform.Infra.pdb
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\bin\Debug\net8.0\OnlineLearningPlatform.Core.dll
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\bin\Debug\net8.0\OnlineLearningPlatform.Core.pdb
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.csproj.AssemblyReference.cache
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.AssemblyInfoInputs.cache
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.AssemblyInfo.cs
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.csproj.CoreCompileInputs.cache
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLe.8813826C.Up2Date
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.dll
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\refint\OnlineLearningPlatform.Infra.dll
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.pdb
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\OnlineLearningPlatform.Infra.genruntimeconfig.cache
+C:\Users\SA\Desktop\OnlineLearningPlatform.Infra\obj\Debug\net8.0\ref\OnlineLearningPlatform.Infra.dll

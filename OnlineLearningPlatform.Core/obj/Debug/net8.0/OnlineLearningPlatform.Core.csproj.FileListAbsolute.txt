@@ -1,0 +1,11 @@
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\bin\Debug\net8.0\OnlineLearningPlatform.Core.deps.json
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\bin\Debug\net8.0\OnlineLearningPlatform.Core.dll
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\bin\Debug\net8.0\OnlineLearningPlatform.Core.pdb
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\OnlineLearningPlatform.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\OnlineLearningPlatform.Core.AssemblyInfoInputs.cache
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\OnlineLearningPlatform.Core.AssemblyInfo.cs
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\OnlineLearningPlatform.Core.csproj.CoreCompileInputs.cache
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\OnlineLearningPlatform.Core.dll
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\refint\OnlineLearningPlatform.Core.dll
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\OnlineLearningPlatform.Core.pdb
+C:\Users\SA\Desktop\OnlineLearningPlatform.Core\obj\Debug\net8.0\ref\OnlineLearningPlatform.Core.dll
