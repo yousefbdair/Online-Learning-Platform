@@ -27,8 +27,6 @@ public partial class Course
 
     public decimal? CategoryId { get; set; }
 
-    public decimal? InstructorId { get; set; }
-
     public virtual Admin? Admin { get; set; }
 
     public virtual Category? Category { get; set; }
@@ -39,7 +37,7 @@ public partial class Course
 
     public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 
-    public virtual Instructor? Instructor { get; set; }
-
     public virtual ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
+
+    public virtual ICollection<CourseInstructor> CourseInstructors { get; set; } = new List<CourseInstructor>();
 }
