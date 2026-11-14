@@ -18,6 +18,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDbContext, DbContext>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IAdminService,AdminService>();
+builder.Services.AddScoped<IInstructorRepository,InstructorRepository>();
+builder.Services.AddScoped<IInstructorService,InstructorService>();
+
 
 var app = builder.Build();
 
