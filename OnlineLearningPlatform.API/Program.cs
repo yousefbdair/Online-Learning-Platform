@@ -1,5 +1,9 @@
 using OnlineLearningPlatform.Core.common;
+using OnlineLearningPlatform.Core.Repository;
+using OnlineLearningPlatform.Core.Service;
 using OnlineLearningPlatform.Infra.common;
+using OnlineLearningPlatform.Infra.Repository;
+using OnlineLearningPlatform.Infra.service;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IDbContext, DbContext>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IAdminService,AdminService>();
 
 var app = builder.Build();
 
