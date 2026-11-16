@@ -37,6 +37,11 @@ builder.Services.AddScoped<IMaterialsRepository, MaterialsRepository>();
 builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
 
 
+builder.Services.AddScoped<ILessonProgressRepository, LessonProgressRepository>();
+builder.Services.AddScoped<ILessonProgressService, LessonProgressService>();
+builder.Services.AddScoped<IMaterialsService, MaterialsService>();
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+builder.Services.AddScoped<ILessonService, LessonService>();
 
 var app = builder.Build();
 
