@@ -4,6 +4,7 @@ using OnlineLearningPlatform.Core.Service;
 using OnlineLearningPlatform.Infra.common;
 using OnlineLearningPlatform.Infra.Repository;
 using OnlineLearningPlatform.Infra.service;
+using OnlineLearningPlatform.Infra.Service;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,10 @@ builder.Services.AddScoped<ICourseObjectiveRepository, CourseObjectiveRepository
 builder.Services.AddScoped<ICourseObjectiveService, CourseObjectiveService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
+builder.Services.AddScoped<ICoursePrerequisitesRepository, CoursePrerequisitesRepository>();
+builder.Services.AddScoped<ICourseInstructorRepository, CourseInstructorRepository>();
+builder.Services.AddScoped<ICourseInstructorService, CourseInstructorService>();
+builder.Services.AddScoped<ICoursePrerequisitesService, CoursePrerequisitesService>();
 
 builder.Services.AddScoped<IDbContext, DbContext>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
