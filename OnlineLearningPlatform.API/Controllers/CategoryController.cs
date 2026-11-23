@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineLearningPlatform.API.Models;
+
+using OnlineLearningPlatform.Core.Models;
 using OnlineLearningPlatform.Core.Service;
 
 namespace OnlineLearningPlatform.API.Controllers

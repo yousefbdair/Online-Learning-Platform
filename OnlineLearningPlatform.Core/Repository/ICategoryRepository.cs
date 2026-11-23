@@ -1,4 +1,5 @@
-﻿using OnlineLearningPlatform.API.Models;
+﻿
+using OnlineLearningPlatform.Core.Models;
 
 namespace OnlineLearningPlatform.Core.Repository
 {
