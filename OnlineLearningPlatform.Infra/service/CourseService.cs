@@ -1,4 +1,5 @@
-﻿using OnlineLearningPlatform.API.Models;
+﻿
+using OnlineLearningPlatform.Core.Models;
 using OnlineLearningPlatform.Core.Repository;
 using OnlineLearningPlatform.Core.Service;
 using System;

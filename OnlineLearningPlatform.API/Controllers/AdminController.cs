@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnlineLearningPlatform.Core.Models;
 using OnlineLearningPlatform.Core.Repository;
 using OnlineLearningPlatform.Core.Service;
-using OnlineLearningPlatform.Infra.Repository;
+
 
 namespace OnlineLearningPlatform.API.Controllers
 {

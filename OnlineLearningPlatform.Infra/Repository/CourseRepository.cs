@@ -1,6 +1,8 @@
 ﻿using Dapper;
-using OnlineLearningPlatform.API.Models;
-using OnlineLearningPlatform.Core.Common;
+
+using OnlineLearningPlatform.Core.common;
+
+using OnlineLearningPlatform.Core.Models;
 using OnlineLearningPlatform.Core.Repository;
 using System.Data;
 
@@ -34,7 +36,7 @@ namespace OnlineLearningPlatform.Infra.Repository
             parameter.Add("P_IS_FEATURED", course.IsFeatured == true ? 1 : 0, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("P_ADMIN_ID", course.AdminId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("P_CATEGORY_ID", course.CategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_INSTRUCTOR_ID", course.InstructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            
             dbContext.Connection.Execute("Course_PACKAGE.CreateCourse", parameter, commandType: CommandType.StoredProcedure);
         }
 
@@ -51,7 +53,7 @@ namespace OnlineLearningPlatform.Infra.Repository
             parameter.Add("P_IS_FEATURED", course.IsFeatured == true ? 1 : 0, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("P_ADMIN_ID", course.AdminId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("P_CATEGORY_ID", course.CategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_INSTRUCTOR_ID", course.InstructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            
             dbContext.Connection.Execute("Course_PACKAGE.UpdateCourse", parameter, commandType: CommandType.StoredProcedure);
         }
 

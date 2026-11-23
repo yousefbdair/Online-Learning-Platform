@@ -1,6 +1,7 @@
 ﻿using Dapper;
-using OnlineLearningPlatform.API.Models;
-using OnlineLearningPlatform.Core.Common;
+
+using OnlineLearningPlatform.Core.common;
+using OnlineLearningPlatform.Core.Models;
 using OnlineLearningPlatform.Core.Repository;
 using System.Data;
 
