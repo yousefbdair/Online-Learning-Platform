@@ -17,7 +17,7 @@ namespace OnlineLearningPlatform.Infra.Repository
         public List<Courseprerequisite> GetAllCoursePrerequisites()
         {
             IEnumerable<Courseprerequisite> result = dbContext.Connection.Query<Courseprerequisite>(
-                "CoursePrerequisites_PACKAGE.GETALLCOURSEPREREQUISITES",
+                "COURSEPREREQUISITES_PKG.GET_ALL",
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -27,7 +27,7 @@ namespace OnlineLearningPlatform.Infra.Repository
             var parameter = new DynamicParameters();
             parameter.Add("P_COURSE_ID", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Courseprerequisite> result = dbContext.Connection.Query<Courseprerequisite>(
-                "CoursePrerequisites_PACKAGE.GetPrerequisitesByCourseId", parameter,
+                "COURSEPREREQUISITES_PKG.GET_BY_COURSE", parameter,
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -36,8 +36,9 @@ namespace OnlineLearningPlatform.Infra.Repository
         {
             var parameter = new DynamicParameters();
             parameter.Add("P_COURSE_ID", prerequisite.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_PREREQUISITE_TEXT", prerequisite.PrerequisiteText, dbType: DbType.String, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CoursePrerequisites_PACKAGE.CreateCoursePrerequisite", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("P_TEXT", prerequisite.PrerequisiteText, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameter.Add("P_ID", prerequisite.PrerequisiteId, dbType: DbType.Int32, direction: ParameterDirection.Output);
+            dbContext.Connection.Execute("COURSEPREREQUISITES_PKG.ADD_PREREQUISITE", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public void UpdateCoursePrerequisite(Courseprerequisite prerequisite)
@@ -45,15 +46,15 @@ namespace OnlineLearningPlatform.Infra.Repository
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", prerequisite.PrerequisiteId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("P_COURSE_ID", prerequisite.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_PREREQUISITE_TEXT", prerequisite.PrerequisiteText, dbType: DbType.String, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CoursePrerequisites_PACKAGE.UpdateCoursePrerequisite", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("P_TEXT", prerequisite.PrerequisiteText, dbType: DbType.String, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("COURSEPREREQUISITES_PKG.UPDATE_PREREQUISITE", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public void DeleteCoursePrerequisite(int id)
         {
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CoursePrerequisites_PACKAGE.DeleteCoursePrerequisite", parameter, commandType: CommandType.StoredProcedure);
+            dbContext.Connection.Execute("COURSEPREREQUISITES_PKG.DELETE_PREREQUISITE", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public Courseprerequisite? GetCoursePrerequisiteById(int id)
@@ -61,7 +62,7 @@ namespace OnlineLearningPlatform.Infra.Repository
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Courseprerequisite> result = dbContext.Connection.Query<Courseprerequisite>(
-                "CoursePrerequisites_PACKAGE.GetCoursePrerequisiteById", parameter,
+                "COURSEPREREQUISITES_PKG.GET_BY_ID", parameter,
                 commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
