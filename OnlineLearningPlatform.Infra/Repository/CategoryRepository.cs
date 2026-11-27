@@ -18,7 +18,7 @@ namespace OnlineLearningPlatform.Infra.Repository
         public List<Category> GetAllCategories()
         {
             IEnumerable<Category> result = dbContext.Connection.Query<Category>(
-                "Category_PACKAGE.GETALLCATEGORIES",
+                "CATEGORIES_PKG.GET_ALL",
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -26,25 +26,26 @@ namespace OnlineLearningPlatform.Infra.Repository
         public void CreateCategory(Category category)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("P_CATEGORYNAME", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameter.Add("P_DESCRIPTION", category.Description, dbType: DbType.String, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("Category_PACKAGE.CreateCategory", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("P_NAME", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameter.Add("P_DESC", category.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameter.Add("P_ID", category.CategoryId, dbType: DbType.String, direction: ParameterDirection.Output);
+            dbContext.Connection.Execute("CATEGORIES_PKG.ADD_CATEGORY", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public void UpdateCategory(Category category)
         {
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", category.CategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_CATEGORYNAME", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameter.Add("P_DESCRIPTION", category.Description, dbType: DbType.String, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("Category_PACKAGE.UpdateCategory", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("P_NAME", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameter.Add("P_DESC", category.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("CATEGORIES_PKG.UPDATE_CATEGORY", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public void DeleteCategory(int id)
         {
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("Category_PACKAGE.DeleteCategory", parameter, commandType: CommandType.StoredProcedure);
+            dbContext.Connection.Execute("CATEGORIES_PKG.DELETE_CATEGORY", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public Category? GetCategoryById(int id)
@@ -52,7 +53,7 @@ namespace OnlineLearningPlatform.Infra.Repository
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Category> result = dbContext.Connection.Query<Category>(
-                "Category_PACKAGE.GetCategoryById", parameter,
+                "CATEGORIES_PKG.GET_BY_ID", parameter,
                 commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }

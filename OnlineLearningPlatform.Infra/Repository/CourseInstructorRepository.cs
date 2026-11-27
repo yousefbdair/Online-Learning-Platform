@@ -17,7 +17,7 @@ namespace OnlineLearningPlatform.Infra.Repository
         public List<CourseInstructor> GetAllCourseInstructors()
         {
             IEnumerable<CourseInstructor> result = dbContext.Connection.Query<CourseInstructor>(
-                "CourseInstructor_PACKAGE.GETALLCOURSEINSTRUCTORS",
+                "COURSE_INSTRUCTOR_PKG.GET_ALL",
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -25,9 +25,9 @@ namespace OnlineLearningPlatform.Infra.Repository
         public List<CourseInstructor> GetByCourseId(int courseId)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("P_COURSE_ID", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameter.Add("p_COURSE_ID", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<CourseInstructor> result = dbContext.Connection.Query<CourseInstructor>(
-                "CourseInstructor_PACKAGE.GetByCourseId", parameter,
+                "COURSE_INSTRUCTOR_PKG.GET_BY_COURSE_ID", parameter,
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -35,9 +35,9 @@ namespace OnlineLearningPlatform.Infra.Repository
         public List<CourseInstructor> GetByInstructorId(int instructorId)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("P_INSTRUCTOR_ID", instructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameter.Add("p_INSTRUCTOR_ID", instructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<CourseInstructor> result = dbContext.Connection.Query<CourseInstructor>(
-                "CourseInstructor_PACKAGE.GetByInstructorId", parameter,
+                "COURSE_INSTRUCTOR_PKG.GET_BY_INSTRUCTOR_ID", parameter,
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -45,17 +45,17 @@ namespace OnlineLearningPlatform.Infra.Repository
         public void CreateCourseInstructor(CourseInstructor courseInstructor)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("P_COURSE_ID", courseInstructor.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_INSTRUCTOR_ID", courseInstructor.InstructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CourseInstructor_PACKAGE.CreateCourseInstructor", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("p_INSTRUCTOR_ID", courseInstructor.InstructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameter.Add("p_COURSE_ID", courseInstructor.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("COURSE_INSTRUCTOR_PKG.add_course_instructor", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public void DeleteCourseInstructor(int courseId, int instructorId)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("P_COURSE_ID", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_INSTRUCTOR_ID", instructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CourseInstructor_PACKAGE.DeleteCourseInstructor", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("p_INSTRUCTOR_ID", instructorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameter.Add("p_COURSE_ID", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("COURSE_INSTRUCTOR_PKG.delete_course_instructor", parameter, commandType: CommandType.StoredProcedure);
         }
     }
 }

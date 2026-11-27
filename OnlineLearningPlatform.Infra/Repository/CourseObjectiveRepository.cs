@@ -15,12 +15,12 @@ namespace OnlineLearningPlatform.Infra.Repository
             dbContext = _dbContext;
         }
 
-        public List<Courseobjective> GetObjectivesByCourseId(int courseId)
+        public List<Courseobjective> GetObjectivesByCourseId(int id)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("P_COURSE_ID", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameter.Add("P_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Courseobjective> result = dbContext.Connection.Query<Courseobjective>(
-                "CourseObjective_PACKAGE.GetObjectivesByCourseId", parameter,
+                "COURSEOBJECTIVES_PKG.GET_BY_ID", parameter,
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -29,8 +29,10 @@ namespace OnlineLearningPlatform.Infra.Repository
         {
             var parameter = new DynamicParameters();
             parameter.Add("P_COURSE_ID", objective.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_OBJECTIVE_TEXT", objective.ObjectiveText, dbType: DbType.String, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CourseObjective_PACKAGE.CreateCourseObjective", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("P_TEXT", objective.ObjectiveText, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameter.Add("P_ID", objective.ObjectiveId, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+            dbContext.Connection.Execute("COURSEOBJECTIVES_PKG.ADD_OBJECTIVE", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public void UpdateCourseObjective(Courseobjective objective)
@@ -38,15 +40,15 @@ namespace OnlineLearningPlatform.Infra.Repository
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", objective.ObjectiveId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("P_COURSE_ID", objective.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("P_OBJECTIVE_TEXT", objective.ObjectiveText, dbType: DbType.String, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CourseObjective_PACKAGE.UpdateCourseObjective", parameter, commandType: CommandType.StoredProcedure);
+            parameter.Add("P_TEXT", objective.ObjectiveText, dbType: DbType.String, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("COURSEOBJECTIVES_PKG.UPDATE_OBJECTIVE", parameter, commandType: CommandType.StoredProcedure);
         }
 
         public void DeleteCourseObjective(int id)
         {
             var parameter = new DynamicParameters();
             parameter.Add("P_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            dbContext.Connection.Execute("CourseObjective_PACKAGE.DeleteCourseObjective", parameter, commandType: CommandType.StoredProcedure);
+            dbContext.Connection.Execute("COURSEOBJECTIVES_PKG.DeleteCourseObjective", parameter, commandType: CommandType.StoredProcedure);
         }
     }
 }
