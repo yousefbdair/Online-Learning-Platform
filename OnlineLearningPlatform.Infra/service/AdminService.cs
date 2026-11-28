@@ -26,15 +26,19 @@ namespace OnlineLearningPlatform.Infra.service
         }
         public void CreateAdmin(Admin admin)
         {
+            admin.Password = HashIfNeeded(admin.Password);
             adminRepository.CreateAdmin(admin);
         }
         public void UpdateAdmin(Admin admin)
         {
+            admin.Password = HashIfNeeded(admin.Password);
             adminRepository.UpdateAdmin(admin);
         }
         public void DeleteAdmin(int id)
         {
             adminRepository.DeleteAdmin(id);
         }
+        private static string HashIfNeeded(string password) =>
+    password.StartsWith("$2") ? password : BCrypt.Net.BCrypt.HashPassword(password);
     }
 }

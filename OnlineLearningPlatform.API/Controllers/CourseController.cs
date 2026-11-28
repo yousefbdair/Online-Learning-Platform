@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+
+using Microsoft.AspNetCore.Mvc;
 
 using OnlineLearningPlatform.Core.Models;
 using OnlineLearningPlatform.Core.Service;

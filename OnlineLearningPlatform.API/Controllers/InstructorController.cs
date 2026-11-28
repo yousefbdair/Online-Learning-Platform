@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineLearningPlatform.Core.Models;
 using OnlineLearningPlatform.Core.Repository;
 using OnlineLearningPlatform.Core.Service;
+using OnlineLearningPlatform.Infra.service;
 
 
 namespace OnlineLearningPlatform.API.Controllers
@@ -27,11 +30,11 @@ namespace OnlineLearningPlatform.API.Controllers
         {
             return instructorService.GetInstructorById(id);
         }
-        [HttpPost]
+        /*[HttpPost]
         public void CreateInstructor(Instructor instructor)
         {
             instructorService.CreateInstructor(instructor);
-        }
+        }*/
         [HttpPut]
         public void UpdateInstructor(Instructor instructor)
         {
@@ -42,6 +45,20 @@ namespace OnlineLearningPlatform.API.Controllers
         public void DeleteInstructor(int id)
         {
             instructorService.DeleteInstructor(id);
+        }
+        [HttpPost]
+        
+        public IActionResult Create([FromBody] Instructor instructor)
+        {
+            try
+            {
+                instructorService.CreateInstructor(instructor);
+                return Ok(new { message = "تم إضافة المدرس بنجاح." });
+            }
+            catch (Exception ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
     }
 }
