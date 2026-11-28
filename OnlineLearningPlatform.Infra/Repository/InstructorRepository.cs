@@ -34,12 +34,14 @@ namespace OnlineLearningPlatform.Infra.Repository
         }
         public void CreateInstructor(Instructor instructor)
         {
-            var parameter = new DynamicParameters();
-            parameter.Add("P_ID",instructor.InstructorId, dbType:DbType.Int32,direction:ParameterDirection.Output);
-            parameter.Add("P_NAME", instructor.Fullname, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameter.Add("P_EMAIL", instructor.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameter.Add("P_BIO", instructor.Bio, dbType: DbType.String, direction: ParameterDirection.Input);
+           
+                var parameter = new DynamicParameters();
+                parameter.Add("P_NAME", instructor.Fullname, dbType: DbType.String, direction: ParameterDirection.Input);
+                parameter.Add("P_EMAIL", instructor.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+                parameter.Add("P_BIO", instructor.Bio, dbType: DbType.String, direction: ParameterDirection.Input);
+
             dbcontext.Connection.Execute("INSTRUCTOR_PKG.ADD_INSTRUCTOR", parameter, commandType: CommandType.StoredProcedure);
+           
         }
         public void UpdateInstructor(Instructor instructor)
         {

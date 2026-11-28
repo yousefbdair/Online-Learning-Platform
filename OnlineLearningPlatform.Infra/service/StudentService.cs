@@ -22,10 +22,12 @@ namespace OnlineLearningPlatform.Infra.service
         }
         public void CreateStudent(Student student)
         {
+            student.Password = HashIfNeeded(student.Password);
             studentRepository.CreateStudent(student);
         }
         public void UpdateStudent(Student student)
         {
+            student.Password = HashIfNeeded(student.Password);
             studentRepository.UpdateStudent(student);
         }
         public void DeleteStudent(int id)
@@ -36,5 +38,7 @@ namespace OnlineLearningPlatform.Infra.service
         {
             return studentRepository.GetStudentById(id);
         }
+        private static string HashIfNeeded(string password) =>
+    password.StartsWith("$2") ? password : BCrypt.Net.BCrypt.HashPassword(password);
     }
 }
